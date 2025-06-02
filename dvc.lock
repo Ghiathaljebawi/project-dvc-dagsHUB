@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/raw_data
       hash: md5
-      md5: 0b9b0498ef0a1999f3141f0c8cd61a49.dir
-      size: 333774
+      md5: 296a06a4510ced89e03b252e4670c61f.dir
+      size: 333759
       nfiles: 2
     - path: src/data/splitting.py
       hash: md5
@@ -114,3 +114,15 @@ stages:
       hash: md5
       md5: 245fbcc4895452154e1d1d135ed40bfe
       size: 82
+  retrieving:
+    cmd: python src/data/retrieving.py
+    deps:
+    - path: src/data/retrieving.py
+      hash: md5
+      md5: a460e93fa60ff93a872d6c493ecd3d7a
+      size: 290
+    outs:
+    - path: data/raw_data/raw.csv
+      hash: md5
+      md5: 617b56af2992376d5c3e91ad80823898
+      size: 333757

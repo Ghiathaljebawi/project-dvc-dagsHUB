@@ -1,4 +1,10 @@
 stages:
+  retrieving:
+    cmd: python src/data/retrieving.py
+    deps:
+    - src/data/retrieving.py
+    outs:
+    - data/raw_data/raw.csv
   splitting:
     cmd: python src/data/splitting.py
     deps:
