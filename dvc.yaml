@@ -1,0 +1,42 @@
+stages:
+  splitting:
+    cmd: python src/data/splitting.py
+    deps:
+    - data/raw_data
+    - src/data/splitting.py
+    outs:
+    - data/processed_data/split_data/
+  preprocessing:
+    cmd: python src/data/preprocessing.py
+    deps:
+    - data/processed_data/split_data
+    - src/data/preprocessing.py
+    outs:
+    - data/processed_data/scaled_data
+  gridsearch:
+    cmd: python src/models/gridsearch.py
+    deps:
+    - data/processed_data/scaled_data
+    - data/processed_data/split_data
+    - src/models/gridsearch.py
+    outs:
+    - models/initial_model
+  training:
+    cmd: python src/models/training.py
+    deps:
+    - data/processed_data/scaled_data
+    - data/processed_data/split_data
+    - models/initial_model
+    - src/models/training.py
+    outs:
+    - models/deployment_model
+  evaluation:
+    cmd: python src/models/evaluation.py
+    deps:
+    - data/processed_data/scaled_data
+    - data/processed_data/split_data
+    - models/deployment_model
+    - src/models/evaluation.py
+    metrics:
+    - metrics/scores.json:
+        cache: false
