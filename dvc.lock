@@ -107,9 +107,13 @@ stages:
       nfiles: 1
     - path: src/models/evaluation.py
       hash: md5
-      md5: 079e47f60ccb81f7974de19dce59cc45
-      size: 655
+      md5: f5eef7a2dc4312ad9ad6f4082b6bda49
+      size: 820
     outs:
+    - path: data/prediction_data/predictions.csv
+      hash: md5
+      md5: 13d4dd2b00ba59c30d14ead63fc759c9
+      size: 8191
     - path: metrics/scores.json
       hash: md5
       md5: 245fbcc4895452154e1d1d135ed40bfe
